@@ -1,12 +1,9 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express').Router()
+const conn = require('../conn.js')
 
-/* GET home page. */
-router.post('/user', function (req, res, next) {
-  console.log(req.body.username)
-  res.json({
-    message: 'user added'
-  })
+
+router.get('/', (req, res, next) => {
+
 })
 
 module.exports = router
