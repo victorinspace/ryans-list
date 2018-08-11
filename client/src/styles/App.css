@@ -8,8 +8,17 @@ html {
 	font-family: sans-serif;
 }
 
-.thing {
+a {
+	text-decoration: none;
+}
+.main-cat {
 	padding: 5px;
 	color: blue;
+	background: #eee;
+	font-size: 18px;
+}
+
+.sub-cat {
+	
 
 }

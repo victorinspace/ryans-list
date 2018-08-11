@@ -1,10 +1,12 @@
 const router = require('express').Router()
 const conn = require('../conn')
 
+let newListing = []
+
 router.get('/categories', (req, res, next) => {
 	const yesAllCats = `
 	SELECT 
-		child.category, parent.category as parent_category, child.slug
+		child.id, child.category, parent.category as parent_category, child.slug
 	FROM 
 		categories child
 	LEFT JOIN 
@@ -35,17 +37,52 @@ router.get('/categories', (req, res, next) => {
 	})
 })
 
+router.get('/listings/:id', (req, res, next) => {
+	const yesAllListings = `
+		SELECT 
+			list.name, list.image, list.child_id, list.slug
+		FROM 
+			listings list
+		LEFT JOIN
+			categories cat
+		ON
+			list.child_id = cat.id 
+		WHERE 
+			list.child_id = cat.id
+	`
 
-{[
-	{
-		name: 'main',
-		sub: [
-		]
-	}
-]}
+	conn.query(yesAllListings, (error, results, fields) => {
+		let subCat = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].child_id == id) {
+				subCat.push(results[i])
+			}
+		}
+
+		res.json(subCat)
+	})
+})
+
+// create new row in the listings database,
+// starting with parent_id
+router.post('/posting', (req, res, next) => {
+	const sql = `
+		INSERT INTO
+			listings (parent_id)
+		VALUES
+			(${req.body.parent_id})
+	`
+	conn.query(sql, (error, results, fields) => {
+		newListing.push('test')
+	})	
+})
+
+// second router for updating the sub category
 
 
-
+// third router for updating the rest of the fields
 
 
 module.exports = router

@@ -9,3 +9,12 @@ export function doItForTheGold() {
 		})
 	})
 }
+
+export function getListings(id) {
+	axios.get(`/api/listings/${id}`).then(resp => {
+		store.dispatch({
+			type: 'GET_LISTINGS',
+			payload: resp.data
+		})
+	})
+}
