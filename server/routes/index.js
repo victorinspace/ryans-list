@@ -1,16 +1,20 @@
 const router = require('express').Router()
 const conn = require('../conn')
 
-let newListing = []
+// ******************************
+// 	MAIN PAGE
+// ******************************
 
+// Populate the Main Page
 router.get('/categories', (req, res, next) => {
 	const yesAllCats = `
-	SELECT 
-		child.id, child.category, parent.category as parent_category, child.slug
-	FROM 
-		categories child
-	LEFT JOIN 
-		categories parent ON child.parent_id = parent.id
+		SELECT 
+			child.id, child.category, 
+			parent.category as parent_category, child.slug
+		FROM 
+			categories child
+		LEFT JOIN 
+			categories parent ON child.parent_id = parent.id
 	`
 
 	conn.query(yesAllCats, (error, results, fields) => {
@@ -37,10 +41,40 @@ router.get('/categories', (req, res, next) => {
 	})
 })
 
+// Get Listings by Header (Main Category)
+router.get('/all-listings/:id', (req, res, next) => {
+	const sql = `
+	SELECT 
+			list.id, list.parent_id, list.name, list.image, list.slug
+	FROM 
+		listings list
+	LEFT JOIN
+		categories cat
+	ON
+		list.parent_id = cat.id 
+	WHERE 
+		list.parent_id = cat.id
+	`
+
+	conn.query(sql, (error, results, fields) => {
+		let headerListings = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].parent_id == id) {
+				headerListings.push(results[i])
+			}
+		}
+
+		res.json(headerListings)
+	})
+})
+
+// Get Listings by Sub-Category
 router.get('/listings/:id', (req, res, next) => {
 	const yesAllListings = `
 		SELECT 
-			list.name, list.image, list.child_id, list.slug
+			list.id, list.name, list.image, list.child_id, list.slug
 		FROM 
 			listings list
 		LEFT JOIN
@@ -65,23 +99,106 @@ router.get('/listings/:id', (req, res, next) => {
 	})
 })
 
-router.get('/categories', (req, res, next) => {
+// Get Indivual Post
+router.get('/post/:id', (req, res, next) => {
 	const sql = `
-	SELECT 
-		categories
-	FROM
-		listings
+		SELECT 
+			id, name, image, description
+		FROM 
+			listings
 	`
 
 	conn.query(sql, (error, results, fields) => {
-		let cat = []
-		let id = req.params.id 
+		let post = []
+		let id = req.params.id
 
 		for (let i = 0; i < results.length; i++) {
-			if ()
+			if (results[i].id == id) {
+				post.push(results[i])
+			}
 		}
+
+		res.json(post)
 	})
 })
+
+// ******************************
+// 	POSTING
+// ******************************
+
+// Get List of Main Categories (Headers)
+router.get('/post1', (req, res, next) => {
+	const sql = `
+		SELECT 
+			child.id, child.category, 
+			parent.category as parent_category, child.slug
+		FROM 
+			categories child
+		LEFT JOIN 
+			categories parent ON child.parent_id = parent.id
+	`
+
+	conn.query(sql, (req, res, next) => {
+		let mainCat = []
+		
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].parent_category == null) {
+				results[i].sub = []
+				mainCat.push(results[i])
+			}
+		}
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].parent_category != null) {
+				for (let j = 0; j < mainCat.length; j++) {
+					if (mainCat[j].category == results[i].parent_category) {
+						mainCat[j].sub.push(results[i])
+					}
+				}
+			}
+		}
+
+		res.json(mainCat)
+	})
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // create new row in the listings database,
 // starting with parent_id
@@ -90,9 +207,9 @@ router.post('/posting', (req, res, next) => {
 		INSERT INTO
 			listings (parent_id)
 		VALUES
-			(${req.body.parent_id})
+			(?)
 	`
-	conn.query(sql, (error, results, fields) => {
+	conn.query(sql, [req.body.parent_id], (error, results, fields) => {
 		res.json(results)
 	})
 })

@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
-import { getListings } from '../actions/frontPageActions.js'
+import { getHeaderListings } from '../actions/frontPageActions.js'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-class Listings extends Component {
+
+class HeaderListings extends Component {
 
 	componentDidMount() {
-		getListings(this.props.match.params.id)
+		getHeaderListings(this.props.match.params.id)	
 	}
 
 	render() {
 		return (
 			<div>
-				{this.props.listings.map(data => (
+				{this.props.headerListings.map( data => (
 					<div key={data.id}>
 						<Link to={`/post/${data.id}`}>{data.name}</Link>
 					</div>
@@ -24,8 +25,8 @@ class Listings extends Component {
 
 function mapStateToProps(appState) {
 	return {
-		listings: appState.listings
+		headerListings: appState.headerListings
 	}
 }
 
-export default connect(mapStateToProps)(Listings)
+export default connect(mapStateToProps)(HeaderListings)

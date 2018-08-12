@@ -1,7 +1,8 @@
 import axios from 'axios'
 import store from '../store'
 
-export function doItForTheGold() {
+// Get All Categories for Main Page
+export function getCats() {
 	axios.get('/api/categories').then(resp => {
 		store.dispatch({
 			type: 'GET_CATS',
@@ -10,8 +11,19 @@ export function doItForTheGold() {
 	})
 }
 
+// Get Listings for Main Categories
+export function getHeaderListings(id) {
+	axios.get('/api/all-listings/' + id).then(resp => {
+		store.dispatch({
+			type: "HEADER_LISTINGS",
+			payload: resp.data
+		})
+	})
+}
+
+// Get Listings for Sub-Categories
 export function getListings(id) {
-	axios.get(`/api/listings/${id}`).then(resp => {
+	axios.get('/api/listings/' + id).then(resp => {
 		store.dispatch({
 			type: 'GET_LISTINGS',
 			payload: resp.data
@@ -19,19 +31,21 @@ export function getListings(id) {
 	})
 }
 
-export function getFirstPostPage() {
-	axios.get(`/api/posting/`).then(resp => {
+// Get Individual Post
+export function getPost(id) {
+	axios.get('/api/post/' + id).then(resp => {
 		store.dispatch({
-			type: 'GET)PAGE',
+			type: 'GET_POST',
 			payload: resp.data
 		})
 	})
 }
 
-export function postOne() {
-	axios.post(`api/posting`).then(resp => {
+export function getMainCats() {
+	axios.get('/api/post1').then(resp => {
 		store.dispatch({
-			type: 'POST_MAIN_CAT'
+			type: 'GET_MAIN_CATS',
+			payload: resp.data
 		})
 	})
 }
