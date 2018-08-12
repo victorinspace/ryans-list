@@ -65,6 +65,24 @@ router.get('/listings/:id', (req, res, next) => {
 	})
 })
 
+router.get('/categories', (req, res, next) => {
+	const sql = `
+	SELECT 
+		categories
+	FROM
+		listings
+	`
+
+	conn.query(sql, (error, results, fields) => {
+		let cat = []
+		let id = req.params.id 
+
+		for (let i = 0; i < results.length; i++) {
+			if ()
+		}
+	})
+})
+
 // create new row in the listings database,
 // starting with parent_id
 router.post('/posting', (req, res, next) => {
@@ -75,12 +93,25 @@ router.post('/posting', (req, res, next) => {
 			(${req.body.parent_id})
 	`
 	conn.query(sql, (error, results, fields) => {
-		newListing.push('test')
-	})	
+		res.json(results)
+	})
 })
 
 // second router for updating the sub category
+router.post('/posting/sub', (req, res, next) => {
+	const updateSub = `
+		UPDATE
+			listings (child_id)
+		SET
+			child_id = (${req.body.parent_id})
+		WHERE
+			child_id = parent_id
+	`
 
+	conn.query(updateSub, (error, results, fields) => {
+		res.json(results)
+	})
+})
 
 // third router for updating the rest of the fields
 

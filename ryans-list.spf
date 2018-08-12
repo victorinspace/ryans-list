@@ -47,32 +47,32 @@
 			<integer>1</integer>
 			<key>contentSelection</key>
 			<data>
-			YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFy
-			Y2hpdmVyVCR0b3ASAAGGoK8QDwcIFRYXGBkfICEoLDA0OFUkbnVs
-			bNMJCgsMEBRXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6MNDg+A
-			AoADgASjERITgAWABoAKgA5UdHlwZVRyb3dzVGtleXNfECZTZWxl
-			Y3Rpb25EZXRhaWxUeXBlUHJpbWFyeUtleWVkRGV0YWlsc9MJCgsa
-			HB6hG4AHoR2ACIAJUTIJ0iIjJCVaJGNsYXNzbmFtZVgkY2xhc3Nl
-			c18QE05TTXV0YWJsZURpY3Rpb25hcnmjJCYnXE5TRGljdGlvbmFy
-			eVhOU09iamVjdNIKCykroSqAC4AN0gstLi9ZTlMuc3RyaW5ngAxS
-			aWTSIiMxMl8QD05TTXV0YWJsZVN0cmluZ6MxMydYTlNTdHJpbmfS
-			IiM1Nl5OU011dGFibGVBcnJheaM1NydXTlNBcnJhedIiIyY5oiYn
-			XxAPTlNLZXllZEFyY2hpdmVy0Tw9VGRhdGGAAQAIABEAGgAjAC0A
-			MgA3AEkATwBWAF4AaQBwAHQAdgB4AHoAfgCAAIIAhACGAIsAkACV
-			AL4AxQDHAMkAywDNAM8A0QDSANcA4gDrAQEBBQESARsBIAEiASQB
-			JgErATUBNwE6AT8BUQFVAV4BYwFyAXYBfgGDAYYBmAGbAaAAAAAA
-			AAACAQAAAAAAAAA+AAAAAAAAAAAAAAAAAAABog==
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
+			dXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5TTXV0YWJs
+			ZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tleWVkQXJj
+			aGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBl
+			AGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA
+			1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEtATIBRAFIAVEBVgFl
+			AWkBcQF2AXkBiwGOAZMAAAAAAAACAQAAAAAAAAA6AAAAAAAAAAAA
+			AAAAAAABlQ==
 			</data>
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {1706, 940}}</string>
+			<string>{{1, 0}, {1465, 910}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>table</key>
 			<string>listings</string>
 			<key>view</key>
-			<string>SP_VIEW_CUSTOMQUERY</string>
+			<string>SP_VIEW_CONTENT</string>
 			<key>windowVerticalDividerPosition</key>
 			<real>214</real>
 		</dict>
@@ -85,6 +85,48 @@
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>SET @main_cat = (3)
+
+INSERT INTO
+	listings (parent_id)
+VALUES
+	(@main_cat)</string>
+		<string>SET @main_cat = (3)
+
+INSERT INTO
+	listings (parent_id)
+VALUES
+	@main_cat</string>
+		<string>INSERT INTO
+	listings (parent_id)
+VALUES
+	(3)</string>
+		<string>UPDATE listings(child_id)
+VALUES(6)</string>
+		<string>INSERT INTO
+	listings (parent_id)
+VALUES
+	(2)</string>
+		<string>INSERT INTO
+	`listings` (`id`, `parent_id`, `child_id`, `name`, `image`, `description`)
+VALUES
+	(31, 3, 6, 'a chair', 'https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwiL7uPr8-XcAhViGzQIHYLrC9cQjRx6BAgBEAU&amp;url=https%3A%2F%2Fdogtime.com%2Fpuppies&amp;psig=AOvVaw1mxCSx1Ga7CA5u_9QuOnE_&amp;ust=1534108008444584', 'this is a beatuiful chair')</string>
+		<string>INSERT INTO
+	`listings` (`id`, `parent_id`, `child_id`, `name`, `image`, `description`)
+VALUES
+	(31, 'a chair', 'https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwiL7uPr8-XcAhViGzQIHYLrC9cQjRx6BAgBEAU&amp;url=https%3A%2F%2Fdogtime.com%2Fpuppies&amp;psig=AOvVaw1mxCSx1Ga7CA5u_9QuOnE_&amp;ust=1534108008444584', 'this is a beatuiful chair')</string>
+		<string>INSERT INTO
+	`listings` (`id`, `parent_id`, `child_id`, `name`, `image`, `description`)
+VALUES
+	(1, 'a chair', 'https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwiL7uPr8-XcAhViGzQIHYLrC9cQjRx6BAgBEAU&amp;url=https%3A%2F%2Fdogtime.com%2Fpuppies&amp;psig=AOvVaw1mxCSx1Ga7CA5u_9QuOnE_&amp;ust=1534108008444584', 'this is a beatuiful chair')</string>
+		<string>INSERT INTO
+	`listings` ('id', 'parent_id', 'child_id', 'name', 'image', 'description')
+VALUES
+	(1, 'a chair', 'https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwiL7uPr8-XcAhViGzQIHYLrC9cQjRx6BAgBEAU&amp;url=https%3A%2F%2Fdogtime.com%2Fpuppies&amp;psig=AOvVaw1mxCSx1Ga7CA5u_9QuOnE_&amp;ust=1534108008444584', 'this is a beatuiful chair')</string>
+		<string>INSERT INTO
+	listings ('id', 'parent_id', 'child_id', 'name', 'image', 'description')
+VALUES
+	(1, 'a chair', 'https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwiL7uPr8-XcAhViGzQIHYLrC9cQjRx6BAgBEAU&amp;url=https%3A%2F%2Fdogtime.com%2Fpuppies&amp;psig=AOvVaw1mxCSx1Ga7CA5u_9QuOnE_&amp;ust=1534108008444584', 'this is a beatuiful chair')</string>
 		<string>INSERT INTO
 	listings ('parent_id', 'name', 'image', 'description')
 VALUES
@@ -351,349 +393,6 @@ SELECT title FROM movies WHERE genres LIKE '%comedy%' AND '%horror%'
 
 -- Find any movies that are about death and are a comedy
 SELECT title FROM movies WHERE genres LIKE '%comedy%' AND LIKE '%horror%'
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
--- SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
--- SELECT title FROM movies WHERE title LIKE '%Godfather%'
-
--- Without using joins find all the comedies
--- SELECT title FROM movies WHERE genres LIKE '%comedy%'
-
--- Find all comedies in the year 2000
-SELECT title FROM movies WHERE genres LIKE '%comedy%' AND title LIKE '%(2000)%'
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
--- SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
--- SELECT title FROM movies WHERE title LIKE '%Godfather%'
-
--- Without using joins find all the comedies
-SELECT title FROM movies WHERE genres LIKE '%comedy%'
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
--- SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
-SELECT title FROM movies WHERE title LIKE '%Godfather%'
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>Godfather</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
--- SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
-SELECT title FROM movies WHERE title = Godfather
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
--- SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
-SELECT title FROM movies WHERE title = '$Godfather%'
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
--- SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
-SELECT title FROM movies WHERE title = '$Godfather'
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
-SELECT title FROM movies WHERE title LIKE '%2002%'
-
--- Find out what year the Godfather came out
-
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
--- SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
-SELECT title FROM movies LIKE '%2002%'
-
--- Find out what year the Godfather came out
-
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
-
--- Find any movies from either 2001 or 2002 with a title containing super
-
--- Create a new table called actors (We are going to pretend the actor can only play in one movie). -- The table should include name, character name, foreign key to movies and date of birth at least plus an id field.
-
--- Pick 3 movies and create insert statements for 10 actors each. You should use the multi value insert statements
-
-
--- Create a new column in the movie table to hold the MPAA rating. UPDATE 5 different movies to their correct rating</string>
-		<string>-- Select all columns and rows from the movies table
--- SELECT * FROM movies
-
--- Select only the title and id of the first 10 rows
--- SELECT title FROM movies LIMIT 10
-
--- Find the movie with the id of 485
--- SELECT title FROM movies WHERE id = 485
-
--- Find the id (only that column) of the movie Made in America (1993)
--- SELECT id FROM movies WHERE title = 'Made in America (1993)'
-
--- Find the first 10 sorted alphabetically
-SELECT title FROM movies ORDER BY title LIMIT 10
-
--- Find all movies from 2002
-
-
--- Find out what year the Godfather came out
-
-
--- Without using joins find all the comedies
-
-
--- Find all comedies in the year 2000
-
-
--- Find any movies that are about death and are a comedy
-
 
 -- Find any movies from either 2001 or 2002 with a title containing super
 

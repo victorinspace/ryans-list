@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from '../store'
 
 import MainPage from './MainPage'
-import Posting from './Posting'
+import FirstPostPage from './FirstPostPage'
 import Listings from './Listings'
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       	<Router>
 	      	<Switch>
 	      		<Route exact path={'/'} component={MainPage} />
-						<Route path={'/postings'} component={Posting} />
+						<Route path={'/postings'} component={FirstPostPage} />
 	      		<Route path={'/listings/:id'} component={Listings} />
 	      	</Switch>
       	</Router>

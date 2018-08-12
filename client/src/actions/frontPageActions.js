@@ -18,3 +18,20 @@ export function getListings(id) {
 		})
 	})
 }
+
+export function getFirstPostPage() {
+	axios.get(`/api/posting/`).then(resp => {
+		store.dispatch({
+			type: 'GET)PAGE',
+			payload: resp.data
+		})
+	})
+}
+
+export function postOne() {
+	axios.post(`api/posting`).then(resp => {
+		store.dispatch({
+			type: 'POST_MAIN_CAT'
+		})
+	})
+}
