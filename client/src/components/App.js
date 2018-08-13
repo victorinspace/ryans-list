@@ -4,14 +4,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from '../store'
 
-// IMPORT PAGES
+// **** IMPORT PAGES ****
 import MainPage from './MainPage'
+
+// Listings and Created Posts
+import HeaderListings from './HeaderListings'
 import Listings from './Listings'
 import GetPost from './GetPost'
-import HeaderListings from './HeaderListings'
-import FirstPostPage from './FirstPostPage'
-import SecondPostPage from './SecondPostPage'
-import ThirdPostPage from './ThirdPostPage'
+
+// Creating Posts
+import MakePost from './MakePost'
 
 class App extends Component {
   render () {
@@ -20,12 +22,14 @@ class App extends Component {
       	<Router>
 	      	<Switch>
 	      		<Route exact path={'/'} component={MainPage} />
+
+	      		{/* Gather Listings */}
+	      		<Route path={'/all-listings/:id'} component={HeaderListings} />
 	      		<Route path={'/listings/:id'} component={Listings} />
 	      		<Route path={'/post/:id'} component={GetPost} />
-	      		<Route path={'/all-listings/:id'} component={HeaderListings} />
-	      		<Route path={'/post1/'} component={FirstPostPage}></Route>
-	      		<Route path={'/post2/'} component={SecondPostPage}></Route>
-	      		<Route path={'/post3/'} component={ThirdPostPage}></Route>
+
+	      		{/* Creating Posts */}
+	      		<Route path={'/makepost/'} component={MakePost} />
 	      	</Switch>
       	</Router>
       </Provider>

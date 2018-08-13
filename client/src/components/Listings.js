@@ -1,3 +1,7 @@
+// This page will display all of the "sub-categories"
+// available through selecting the "main-category",
+// or "header category"
+
 import React, { Component } from 'react'
 import { getListings } from '../actions/frontPageActions.js'
 import { connect } from 'react-redux'
@@ -14,7 +18,9 @@ class Listings extends Component {
 			<div>
 				{this.props.listings.map(data => (
 					<div key={data.id}>
-						<Link to={`/post/${data.id}`}>{data.name}</Link>
+						<Link to={`/post/${data.id}`}>
+							{data.name}
+						</Link>
 					</div>
 				))}
 			</div>

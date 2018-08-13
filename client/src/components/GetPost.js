@@ -1,3 +1,5 @@
+// Display individual posts
+
 import React, { Component } from 'react'
 import { getPost } from '../actions/frontPageActions.js'
 import { connect } from 'react-redux'

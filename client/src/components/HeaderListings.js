@@ -1,3 +1,6 @@
+// This page displays all of the categories associated
+// with the "main-category" or "header category"
+
 import React, { Component } from 'react'
 import { getHeaderListings } from '../actions/frontPageActions.js'
 import { connect } from 'react-redux'
@@ -15,7 +18,10 @@ class HeaderListings extends Component {
 			<div>
 				{this.props.headerListings.map( data => (
 					<div key={data.id}>
-						<Link to={`/post/${data.id}`}>{data.name}</Link>
+						<Link to={`/makepost/${data.parent_id}`}>Make Post</Link>
+						<div>
+							<Link to={`/post/${data.id}`}>{data.name}</Link>
+						</div>
 					</div>
 				))}
 			</div>

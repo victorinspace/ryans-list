@@ -1,3 +1,5 @@
+// This is the first page that displays 
+// all of the categories available.
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { getCats } from '../actions/frontPageActions.js'
@@ -14,7 +16,6 @@ class MainPage extends Component {
 			<div>
 
 				{this.props.categories.map( (mainDeets, i) => (
-
 				/* Main Category */
 					<div key={`main-${i}`}>
 						<div className="main-cat">
