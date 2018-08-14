@@ -1,5 +1,9 @@
 // This page displays all of the categories associated
-// with the "main-category" or "header category"
+// with the "main-category" or "header category".
+// It will show every listing associated with 
+// it's category.
+
+// We can also access the posting page from here.
 
 import React, { Component } from 'react'
 import { getHeaderListings } from '../actions/frontPageActions.js'
@@ -16,12 +20,16 @@ class HeaderListings extends Component {
 	render() {
 		return (
 			<div>
-				<Link to={`/makepost/`}></Link>
+				<Link to={`/makepost/`}>Make Post</Link>
+
 				{this.props.headerListings.map( data => (
-					<div key={data.id}>
-						<Link to={`/post/${data.id}`}>{data.name}</Link>
+					<div className="single-listing" key={data.id}>
+						<div>
+							<Link to={`/post/${data.id}`}>{data.name}</Link>
+						</div>
 					</div>
 				))}
+
 			</div>
 		)
 	}

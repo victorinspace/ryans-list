@@ -7,13 +7,13 @@ import store from '../store'
 // **** IMPORT PAGES ****
 import MainPage from './MainPage'
 
-// Listings and Created Posts
+// View Listings and Created Posts
 import HeaderListings from './HeaderListings'
 import Listings from './Listings'
 import GetPost from './GetPost'
 
 // Creating Posts
-import MakePost from './MakePost'
+import CreateListing from './CreateListing'
 
 class App extends Component {
   render () {
@@ -29,7 +29,7 @@ class App extends Component {
 	      		<Route path={'/post/:id'} component={GetPost} />
 
 	      		{/* Creating Posts */}
-	      		<Route path={'/all-listings/:id/makepost/'} component={MakePost} />
+	      		<Route path={'/all-listings/:id/makepost/'} component={CreateListing} />
 	      	</Switch>
       	</Router>
       </Provider>

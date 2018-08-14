@@ -27,3 +27,8 @@ a {
 	font-size: 18px;
 	width: 300px;
 }
+
+.single-listing {
+	width: 500px;
+	margin: 0 auto;
+}

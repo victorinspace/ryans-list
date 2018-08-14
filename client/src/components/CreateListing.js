@@ -6,7 +6,7 @@ import { createListing } from '../actions/frontPageActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-class MakePost extends Component {
+class CreateListing extends Component {
 
 	state = {
 		name: '',
@@ -50,4 +50,4 @@ class MakePost extends Component {
 	}
 }
 
-export default MakePost
+export default CreateListing

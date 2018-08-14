@@ -13,27 +13,31 @@ class MainPage extends Component {
 	
 	render() {
 		return (
-			<div className="main-page-listings">
+			<div>
+				<h1>Ryan's List</h1>
+				
+				<div className="main-page-listings">
 
-				{this.props.categories.map( (mainDeets, i) => (
-				/* Main Category */
-					<div key={`main-${i}`}>
-						<div className="main-cat">
-							<Link to={`/all-listings/${mainDeets.id}`}>
-								{mainDeets.category}
-							</Link>
-						</div>
-
-						{mainDeets.sub.map( (subDeets, i) => (
-							/* Sub-Category */
-							<div className="sub-cat" key={`sub-${i}`}>
-								<Link to={`/listings/${subDeets.id}`}>
-									{subDeets.category}
+					{this.props.categories.map( (mainDeets, i) => (
+					/* Main Category */
+						<div key={`main-${i}`}>
+							<div className="main-cat">
+								<Link to={`/all-listings/${mainDeets.id}`}>
+									{mainDeets.category}
 								</Link>
 							</div>
-						))}
-					</div>
-				))}
+
+							{mainDeets.sub.map( (subDeets, i) => (
+								/* Sub-Category */
+								<div className="sub-cat" key={`sub-${i}`}>
+									<Link to={`/listings/${subDeets.id}`}>
+										{subDeets.category}
+									</Link>
+								</div>
+							))}
+						</div>
+					))}
+				</div>
 			</div>
 		)
 	}

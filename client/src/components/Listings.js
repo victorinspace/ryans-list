@@ -17,10 +17,12 @@ class Listings extends Component {
 		return (
 			<div>
 				{this.props.listings.map(data => (
-					<div key={data.id}>
-						<Link to={`/post/${data.id}`}>
-							{data.name}
-						</Link>
+					<div className="single-listing" key={data.id}>
+						<div >
+							<Link to={`/post/${data.id}`}>
+								{data.name}
+							</Link>
+						</div>
 					</div>
 				))}
 			</div>
