@@ -9,17 +9,17 @@ const conn = require('../conn')
 
 // Populate the Main Page
 router.get('/categories', (req, res, next) => {
-	const yesAllCats = `
+	const sql = `
 		SELECT 
 			child.id, child.category, 
-			parent.category as parent_category, child.slug
+			parent.category AS parent_category, child.slug
 		FROM 
 			categories child
 		LEFT JOIN 
-			categories parent ON child.category_id = parent.id
+			categories parent ON child.parent_id = parent.id
 	`
 
-	conn.query(yesAllCats, (error, results, fields) => {
+	conn.query(sql, (error, results, fields) => {
 		let mainCat = []
 		
 		for (let i = 0; i < results.length; i++) {
@@ -46,16 +46,16 @@ router.get('/categories', (req, res, next) => {
 // Get Listings by Header (Main Category)
 router.get('/all-listings/:id', (req, res, next) => {
 	const sql = `
-	SELECT 
-		list.id, list.category_id, list.name
-	FROM 
-		listings list
-	LEFT JOIN
-		categories cat
-	ON
-		list.category_id = cat.id 
-	WHERE 
-		list.category_id = cat.id
+		SELECT 
+			list.id, list.parent_id, list.name, list.image
+		FROM 
+			listings list
+		LEFT JOIN
+			categories cat
+		ON
+			list.parent_id = cat.id 
+		WHERE 
+			list.parent_id = cat.id
 	`
 
 	conn.query(sql, (error, results, fields) => {
@@ -63,20 +63,20 @@ router.get('/all-listings/:id', (req, res, next) => {
 		let id = req.params.id
 
 		for (let i = 0; i < results.length; i++) {
-			if (results[i].category_id == id) {
+			if (results[i].parent_id == id) {
 				headerListings.push(results[i])
 			}
 		}
 
-		res.json(headerListings)
+	res.json(headerListings)
 	})
 })
 
 // Get Listings by Sub-Category
 router.get('/listings/:id', (req, res, next) => {
-	const yesAllListings = `
+	const sql = `
 		SELECT 
-			list.id, list.name, list.image, list.child_id, list.slug
+			list.name, list.image, list.child_id, list.id
 		FROM 
 			listings list
 		LEFT JOIN
@@ -87,7 +87,7 @@ router.get('/listings/:id', (req, res, next) => {
 			list.child_id = cat.id
 	`
 
-	conn.query(yesAllListings, (error, results, fields) => {
+	conn.query(sql, (error, results, fields) => {
 		let subCat = []
 		let id = req.params.id
 
@@ -97,7 +97,7 @@ router.get('/listings/:id', (req, res, next) => {
 			}
 		}
 
-		res.json(subCat)
+	res.json(subCat)
 	})
 })
 

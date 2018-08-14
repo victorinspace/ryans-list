@@ -18,10 +18,7 @@ class HeaderListings extends Component {
 			<div>
 				{this.props.headerListings.map( data => (
 					<div key={data.id}>
-						<Link to={`/makepost/${data.parent_id}`}>Make Post</Link>
-						<div>
-							<Link to={`/post/${data.id}`}>{data.name}</Link>
-						</div>
+						<Link to={`/post/${data.id}`}>{data.name}</Link>
 					</div>
 				))}
 			</div>

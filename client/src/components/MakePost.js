@@ -6,7 +6,7 @@ import { getMainCats } from '../actions/frontPageActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-class FirstPostPage extends Component {
+class MakePost extends Component {
 
 	componentDidMount() {
 		getMainCats(this.props.match.params.id)
@@ -30,4 +30,4 @@ function mapStateToProps(appState) {
 	}
 }
 
-export default connect(mapStateToProps)(FirstPostPage)
+export default connect(mapStateToProps)(MakePost)
