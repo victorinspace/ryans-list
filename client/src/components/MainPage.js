@@ -13,7 +13,7 @@ class MainPage extends Component {
 	
 	render() {
 		return (
-			<div>
+			<div className="main-page-listings">
 
 				{this.props.categories.map( (mainDeets, i) => (
 				/* Main Category */
