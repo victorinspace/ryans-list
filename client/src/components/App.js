@@ -35,7 +35,7 @@ class App extends Component {
 	      		<Route path={'/post/:id'} component={ShowPost} />
 
 	      		{/* Creating Posts */}
-	      		<Route path={'/all-listings/:id/createlisting'} component={CreateListing} />
+	      		<Route path={'/listings/:id/createlisting'} component={CreateListing} />
 					</div>
       	</Router>
       </Provider>

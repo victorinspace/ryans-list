@@ -14,12 +14,14 @@ class MainPage extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Ryan's List</h1>
+				<Link to={`/`}><h1>Ryan's List</h1></Link>
 
 				<div className="main-page-listings">
+					<div className="location-header">Las Vegas</div>
+
 					{this.props.categories.map( (mainDeets, i) => (
 					/* Main Category */
-						<div key={`main-${i}`}>
+						<div className="main-cats-container" key={`main-${i}`}>
 							<div className="main-cat">
 								<Link to={`/all-listings/${mainDeets.id}`}>
 									{mainDeets.category}

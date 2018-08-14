@@ -21,7 +21,7 @@ class HeaderListings extends Component {
 		return (
 			<div>
 
-				<h1>Ryan's List</h1>
+				<Link to={`/`}><h1>Ryan's List</h1></Link>
 
 				<Link to={`/createlisting/`}>Make Post</Link>
 

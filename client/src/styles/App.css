@@ -12,6 +12,7 @@ a {
 	text-decoration: none;
 }
 
+/* main container */
 .main-page-listings {
 	display: flex;
 	flex-wrap: wrap;
@@ -20,15 +21,44 @@ a {
 	width: 700px;
 }
 
+/*
+	MAIN PAGE	
+*/
+.main-cats-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 300px;
+	justify-content: space-evenly;
+	margin-bottom: 20px;
+}
+/* main header */
+.location-header {
+	width: 100%;
+	padding: 20px;
+	margin-bottom: 20px;
+	background: #eee;
+	text-align: center;
+	font-size: 2em;
+}
+
+/* header category */
 .main-cat {
-	padding: 5px;
+	padding: 7px;
 	color: blue;
 	background: #eee;
 	font-size: 18px;
 	width: 300px;
 }
 
+/* (sub-category) */
+.sub-cat {
+	padding: 7px;
+	color: blue;
+	width: 120px;
+}
+
 .single-listing {
 	width: 500px;
 	margin: 0 auto;
+	padding: 7px;
 }

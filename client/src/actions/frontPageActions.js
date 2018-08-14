@@ -42,7 +42,7 @@ export function getPost(id) {
 }
 
 export function createListing(listing) {
-	axios.post('/api/createlisting', listing).then(resp => {
-		console.log(resp)
+	axios.post('/api/listings', listing).then(resp => {
+		console.log('resp:', resp)
 	})
 }	

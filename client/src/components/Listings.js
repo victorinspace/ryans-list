@@ -18,7 +18,7 @@ class Listings extends Component {
 		return (
 			<div>
 
-				<h1>Ryan's List</h1>
+				<Link to={`/`}><h1>Ryan's List</h1></Link>
 
 				<Link to={`/listings/${this.props.match.params.id}/createlisting`}>Make Post</Link>
 
