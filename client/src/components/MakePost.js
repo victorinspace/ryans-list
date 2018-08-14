@@ -2,32 +2,52 @@
 // a new post.
 
 import React, { Component } from 'react'
-import { getMainCats } from '../actions/frontPageActions'
+import { createListing } from '../actions/frontPageActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class MakePost extends Component {
 
-	componentDidMount() {
-		getMainCats(this.props.match.params.id)
+	state = {
+		name: '',
+		image: '',
+		description: ''
+	}
+
+	handleChange = (e) => {
+		this.setState({
+			[e.target.name]:e.target.value
+		})
+	}
+
+	handleSubmit = (e) => {
+		e.preventDefault()
+		createListing({
+			name: this.state.name,
+			image: this.state.image,
+			description: this.state.description,
+			child_id: this.props.match.params.id
+		})
 	}
 
 	render() {
 		return (
 			<div>
-				<input type="text"/>
-				<input type="text"/>
-				<input type="text"/>
-				<button type="submit">Submit</button>
+				<form onSubmit={this.handleSubmit}><input type="text"/>
+					<input type="text" name="name" 
+									onChange={this.handleChange} 
+									value={this.state.name} />
+					<input type="text" name="image" 
+									onChange={this.handleChange} 
+									value={this.state.image} />
+					<input type="text" name="description" 
+									onChange={this.handleChange} 
+									value={this.state.description} />
+					<button type="submit">Submit</button>
+				</form>
 			</div>
 		)
 	}
 }
 
-function mapStateToProps(appState) {
-	return {
-		mainCats: appState.mainCats
-	}
-}
-
-export default connect(mapStateToProps)(MakePost)
+export default MakePost

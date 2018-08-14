@@ -131,100 +131,45 @@ router.get('/post/:id', (req, res, next) => {
 // ******************************
 
 // Get List of Main Categories (Headers)
-router.get('/makepost', (req, res, next) => {
-	const sql = `
-		SELECT 
-			id, child.id, child.category, 
-			parent.category as parent_category, child.slug
-		FROM 
-			categories child
-		LEFT JOIN 
-			categories parent ON child.category_id = parent.id
-	`
+// router.get('/makepost', (req, res, next) => {
+// 	const sql = `
+// 		SELECT 
+// 			id, child.id, child.category, 
+// 			parent.category as parent_category, child.slug
+// 		FROM 
+// 			categories child
+// 		LEFT JOIN 
+// 			categories parent ON child.category_id = parent.id
+// 	`
 
-	conn.query(sql, (req, res, next) => {
-		let mainCat = []
+// 	conn.query(sql, (req, res, next) => {
+// 		let mainCat = []
 		
-		for (let i = 0; i < results.length; i++) {
-			if (results[i].parent_category == null) {
-				results[i].sub = []
-				mainCat.push(results[i])
-			}
-		}
+// 		for (let i = 0; i < results.length; i++) {
+// 			if (results[i].parent_category == null) {
+// 				results[i].sub = []
+// 				mainCat.push(results[i])
+// 			}
+// 		}
 
-		res.json(mainCat)
-	})
-})
+// 		res.json(mainCat)
+// 	})
+// })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// create new row in the listings database,
-// starting with category_id
-router.post('/posting', (req, res, next) => {
+// Create New Listing
+router.post('/makepost', (resp, res, next) => {
 	const sql = `
 		INSERT INTO
-			listings (category_id)
+			listings (name, child_id, image, description)
 		VALUES
-			(?)
+			(?, ?, ?, ?)
 	`
-	conn.query(sql, [req.body.category_id], (error, results, fields) => {
+
+	conn.query(sql, [req.body.name, req.body.child_id, req.body.description, req.body.image], (err, results, fields) => {
 		res.json(results)
 	})
 })
 
-// second router for updating the sub category
-router.post('/posting/sub', (req, res, next) => {
-	const updateSub = `
-		UPDATE
-			listings (child_id)
-		SET
-			child_id = (${req.body.category_id})
-		WHERE
-			child_id = category_id
-	`
-
-	conn.query(updateSub, (error, results, fields) => {
-		res.json(results)
-	})
-})
-
-// third router for updating the rest of the fields
 
 
 module.exports = router

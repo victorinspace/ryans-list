@@ -16,6 +16,7 @@ class HeaderListings extends Component {
 	render() {
 		return (
 			<div>
+				<Link to={`/makepost/`}></Link>
 				{this.props.headerListings.map( data => (
 					<div key={data.id}>
 						<Link to={`/post/${data.id}`}>{data.name}</Link>

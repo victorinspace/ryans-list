@@ -41,11 +41,9 @@ export function getPost(id) {
 	})
 }
 
-export function getMainCats() {
-	axios.get('/api/post1').then(resp => {
-		store.dispatch({
-			type: 'GET_MAIN_CATS',
-			payload: resp.data
-		})
+export function createListing(listing) {
+	console.log(listing)
+	axios.post('/api/makepost', listing).then(resp => {
+		console.log(resp)
 	})
-}
+}	

@@ -29,7 +29,7 @@ class App extends Component {
 	      		<Route path={'/post/:id'} component={GetPost} />
 
 	      		{/* Creating Posts */}
-	      		<Route path={'/makepost/'} component={MakePost} />
+	      		<Route path={'/all-listings/:id/makepost/'} component={MakePost} />
 	      	</Switch>
       	</Router>
       </Provider>
