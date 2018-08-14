@@ -2,6 +2,7 @@
 // available through selecting the "main-category",
 // or "header category"
 
+// We can also access posting page from here
 import React, { Component } from 'react'
 import { getListings } from '../actions/frontPageActions.js'
 import { connect } from 'react-redux'
@@ -16,6 +17,11 @@ class Listings extends Component {
 	render() {
 		return (
 			<div>
+
+				<h1>Ryan's List</h1>
+
+				<Link to={`/listings/${this.props.match.params.id}/createlisting`}>Make Post</Link>
+
 				{this.props.listings.map(data => (
 					<div className="single-listing" key={data.id}>
 						<div >
@@ -25,6 +31,7 @@ class Listings extends Component {
 						</div>
 					</div>
 				))}
+
 			</div>
 		)
 	}

@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
 import '../styles/App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Provider } from 'react-redux'
 import store from '../store'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-// **** IMPORT PAGES ****
+
+// **** 
+// IMPORT PAGES 
+// ****
+
 import MainPage from './MainPage'
 
 // View Listings and Created Posts
 import HeaderListings from './HeaderListings'
 import Listings from './Listings'
-import GetPost from './GetPost'
+
+// Show Individual Post
+import ShowPost from './ShowPost'
 
 // Creating Posts
 import CreateListing from './CreateListing'
@@ -20,17 +26,17 @@ class App extends Component {
     return (
       <Provider store={store}>
       	<Router>
-	      	<Switch>
+					<div>
 	      		<Route exact path={'/'} component={MainPage} />
 
 	      		{/* Gather Listings */}
 	      		<Route path={'/all-listings/:id'} component={HeaderListings} />
 	      		<Route path={'/listings/:id'} component={Listings} />
-	      		<Route path={'/post/:id'} component={GetPost} />
+	      		<Route path={'/post/:id'} component={ShowPost} />
 
 	      		{/* Creating Posts */}
-	      		<Route path={'/all-listings/:id/makepost/'} component={CreateListing} />
-	      	</Switch>
+	      		<Route path={'/all-listings/:id/createlisting'} component={CreateListing} />
+					</div>
       	</Router>
       </Provider>
     )

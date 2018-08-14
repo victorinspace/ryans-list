@@ -6,9 +6,6 @@ const intitialState = {
 	listings: [],
 	post: [],
 	headerListings: [],
-
-	// for making posts
-	mainCats: []
 }
 
 export default function (state = intitialState, action) {
@@ -21,8 +18,6 @@ export default function (state = intitialState, action) {
 			return {...state, listings: action.payload}
 		case 'GET_POST':
 			return {...state, post: action.payload}
-		case 'GET_MAIN_CATS':
-			return {...state, mainCats: action.payload}
 		default:
 			return state
 	}

@@ -157,7 +157,7 @@ router.get('/post/:id', (req, res, next) => {
 // })
 
 // Create New Listing
-router.post('/makepost', (resp, res, next) => {
+router.post('/createlisting/:id', (resp, res, next) => {
 	const sql = `
 		INSERT INTO
 			listings (name, child_id, image, description)

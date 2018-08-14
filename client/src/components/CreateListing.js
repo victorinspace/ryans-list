@@ -3,8 +3,6 @@
 
 import React, { Component } from 'react'
 import { createListing } from '../actions/frontPageActions'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 class CreateListing extends Component {
 
@@ -12,6 +10,10 @@ class CreateListing extends Component {
 		name: '',
 		image: '',
 		description: ''
+	}
+
+	componentDidMount() {
+		console.log('test')	
 	}
 
 	handleChange = (e) => {
@@ -33,7 +35,10 @@ class CreateListing extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}><input type="text"/>
+
+				<h1>Ryan's List</h1>
+
+				<form onSubmit={this.handleSubmit}>
 					<input type="text" name="name" 
 									onChange={this.handleChange} 
 									value={this.state.name} />

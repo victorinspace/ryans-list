@@ -2,8 +2,8 @@
 // all of the categories available.
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { getCats } from '../actions/frontPageActions.js'
 import { connect } from 'react-redux'
+import { getCats } from '../actions/frontPageActions.js'
 
 class MainPage extends Component {
 	
@@ -15,9 +15,8 @@ class MainPage extends Component {
 		return (
 			<div>
 				<h1>Ryan's List</h1>
-				
-				<div className="main-page-listings">
 
+				<div className="main-page-listings">
 					{this.props.categories.map( (mainDeets, i) => (
 					/* Main Category */
 						<div key={`main-${i}`}>
