@@ -2,7 +2,6 @@ const router = require('express').Router()
 const conn = require('../conn')
 
 
-
 // ******************************
 // 	MAIN PAGE
 // ******************************
@@ -53,9 +52,11 @@ router.get('/all-listings/:id', (req, res, next) => {
 		LEFT JOIN
 			categories cat
 		ON
-			list.parent_id = cat.id 
+			list.child_id = cat.id 
 		WHERE 
-			list.parent_id = cat.id
+			list.child_id = cat.id 
+		OR
+			cat.parent_id = list.child_id
 	`
 
 	conn.query(sql, (error, results, fields) => {
@@ -105,9 +106,9 @@ router.get('/listings/:id', (req, res, next) => {
 router.get('/post/:id', (req, res, next) => {
 	const sql = `
 		SELECT 
-			id, name, image, description
+			list.id, list.name, list.image, list.description
 		FROM 
-			listings
+			listings list
 	`
 
 	conn.query(sql, (error, results, fields) => {
@@ -129,32 +130,6 @@ router.get('/post/:id', (req, res, next) => {
 // ******************************
 // 	POSTING
 // ******************************
-
-// Get List of Main Categories (Headers)
-// router.get('/makepost', (req, res, next) => {
-// 	const sql = `
-// 		SELECT 
-// 			id, child.id, child.category, 
-// 			parent.category as parent_category, child.slug
-// 		FROM 
-// 			categories child
-// 		LEFT JOIN 
-// 			categories parent ON child.category_id = parent.id
-// 	`
-
-// 	conn.query(sql, (req, res, next) => {
-// 		let mainCat = []
-		
-// 		for (let i = 0; i < results.length; i++) {
-// 			if (results[i].parent_category == null) {
-// 				results[i].sub = []
-// 				mainCat.push(results[i])
-// 			}
-// 		}
-
-// 		res.json(mainCat)
-// 	})
-// })
 
 // Create New Listing
 router.post('/createlisting', (resp, res, next) => {

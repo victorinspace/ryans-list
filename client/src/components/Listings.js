@@ -17,20 +17,25 @@ class Listings extends Component {
 	render() {
 		return (
 			<div>
+				<div className="thumbnail-view-container">
+					<Link to={`/`}><h1>Ryan's List</h1></Link>
 
-				<Link to={`/`}><h1>Ryan's List</h1></Link>
-
-				<Link to={`/listings/${this.props.match.params.id}/createlisting`}>Make Post</Link>
-
-				{this.props.listings.map(data => (
-					<div className="single-listing" key={data.id}>
-						<div >
-							<Link to={`/post/${data.id}`}>
-								{data.name}
-							</Link>
-						</div>
+					<div className="viewing-menu">
+						<Link to={`/gallery/${this.props.match.params.id}`}>Gallery View</Link>
+						<Link to={`/thumbnail/${this.props.match.params.id}`}>Thumbnail</Link>
+						<Link to={`/listings/${this.props.match.params.id}/createlisting`}>Make Post</Link>
 					</div>
-				))}
+
+					{this.props.listings.map(data => (
+						<div className="single-listing" key={data.id}>
+							<div >
+								<Link to={`/post/${data.id}`}>
+									{data.name}
+								</Link>
+							</div>
+						</div>
+					))}
+				</div>
 
 			</div>
 		)

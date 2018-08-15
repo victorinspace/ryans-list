@@ -5,7 +5,7 @@ const intitialState = {
 	// viewing the listings
 	listings: [],
 	post: [],
-	headerListings: [],
+	headerListings: []
 }
 
 export default function (state = intitialState, action) {

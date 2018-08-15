@@ -4,22 +4,17 @@ import store from '../store'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-
 // **** 
 // IMPORT PAGES 
 // ****
-
 import MainPage from './MainPage'
-
-// View Listings and Created Posts
 import HeaderListings from './HeaderListings'
 import Listings from './Listings'
-
-// Show Individual Post
 import ShowPost from './ShowPost'
-
-// Creating Posts
 import CreateListing from './CreateListing'
+import Thumbnail from './Thumbnail'
+import Gallery from './Gallery'
+
 
 class App extends Component {
   render () {
@@ -31,8 +26,10 @@ class App extends Component {
 
 	      		{/* Gather Listings */}
 	      		<Route path={'/all-listings/:id'} component={HeaderListings} />
-	      		<Route path={'/listings/:id'} component={Listings} />
+	      		<Route exact path={'/listings/:id'} component={Listings} />
 	      		<Route path={'/post/:id'} component={ShowPost} />
+	      		<Route path={'/thumbnail/:id'} component={Thumbnail} />
+	      		<Route path={'/galleryview/:id'} component={Gallery} />
 
 	      		{/* Creating Posts */}
 	      		<Route path={'/listings/:id/createlisting'} component={CreateListing} />

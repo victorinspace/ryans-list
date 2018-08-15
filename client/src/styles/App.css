@@ -31,6 +31,7 @@ a {
 	justify-content: space-evenly;
 	margin-bottom: 20px;
 }
+
 /* main header */
 .location-header {
 	width: 100%;
@@ -61,4 +62,28 @@ a {
 	width: 500px;
 	margin: 0 auto;
 	padding: 7px;
+
+}
+
+/* Thumbnail View */
+.thumbnail-view-container {
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.viewing-menu {
+	background: #eee;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.viewing-menu > * {
+	margin-right: 20px;
+}
+
+.thumbnail-image {
+	margin-bottom: 30px;
 }

@@ -18,7 +18,7 @@ class CreateListing extends Component {
 
 	handleChange = (e) => {
 		this.setState({
-			[e.target.name]:e.target.value
+			[e.target.name]: e.target.value
 		})
 	}
 
@@ -39,15 +39,21 @@ class CreateListing extends Component {
 				<h1>Ryan's List</h1>
 
 				<form onSubmit={this.handleSubmit}>
+					<label name="title">Title:</label>
 					<input type="text" name="name" 
 									onChange={this.handleChange} 
 									value={this.state.name} />
+
+					<label name="image">Image:</label>
 					<input type="text" name="image" 
 									onChange={this.handleChange} 
 									value={this.state.image} />
+
+					<label name="description">Description:</label>
 					<input type="text" name="description" 
 									onChange={this.handleChange} 
 									value={this.state.description} />
+
 					<button type="submit">Submit</button>
 				</form>
 			</div>
