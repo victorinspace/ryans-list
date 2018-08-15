@@ -14,9 +14,10 @@ class MainPage extends Component {
 	render() {
 		return (
 			<div>
-				<Link to={`/`}><h1>Ryan's List</h1></Link>
 
 				<div className="main-page-listings">
+					<Link to={`/`}><h1>Ryan's List</h1></Link>
+					
 					<div className="location-header">Las Vegas</div>
 
 					{this.props.categories.map( (mainDeets, i) => (

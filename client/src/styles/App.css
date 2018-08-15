@@ -39,7 +39,7 @@ a {
 	margin-bottom: 20px;
 	background: #eee;
 	text-align: center;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 /* header category */
@@ -86,4 +86,18 @@ a {
 
 .thumbnail-image {
 	margin-bottom: 30px;
+}
+
+.form-container {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.form-container > * {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.description {
+	height: 100px;
 }

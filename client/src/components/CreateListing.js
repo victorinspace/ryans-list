@@ -35,27 +35,28 @@ class CreateListing extends Component {
 	render() {
 		return (
 			<div>
+				<div className="thumbnail-view-container">
+					<h1>Ryan's List</h1>
 
-				<h1>Ryan's List</h1>
+					<form className="form-container" onSubmit={this.handleSubmit}>
+						<label name="title">Title:</label>
+						<input type="text" name="name" 
+										onChange={this.handleChange} 
+										value={this.state.name} />
 
-				<form onSubmit={this.handleSubmit}>
-					<label name="title">Title:</label>
-					<input type="text" name="name" 
-									onChange={this.handleChange} 
-									value={this.state.name} />
+						<label name="image">Image:</label>
+						<input type="text" name="image" 
+										onChange={this.handleChange} 
+										value={this.state.image} />
 
-					<label name="image">Image:</label>
-					<input type="text" name="image" 
-									onChange={this.handleChange} 
-									value={this.state.image} />
+						<label name="description">Description:</label>
+						<input className="description" type="text" name="description" 
+										onChange={this.handleChange} 
+										value={this.state.description} />
 
-					<label name="description">Description:</label>
-					<input type="text" name="description" 
-									onChange={this.handleChange} 
-									value={this.state.description} />
-
-					<button type="submit">Submit</button>
-				</form>
+						<button type="submit">Submit</button>
+					</form>
+				</div>
 			</div>
 		)
 	}
